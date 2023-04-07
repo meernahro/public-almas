@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Almas Print</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Almas Print Logo" class="logo">
+  </header>
+  <main>
+    <div id="home-container"></div>
+    <div id="nav-container"></div>
+  </main>
+
+  <script>
+    async function fetchAndInsert(component, targetId) {
+      const response = await fetch(component);
+      const html = await response.text();
+      document.getElementById(targetId).innerHTML = html;
+    }
+
+    fetchAndInsert("home.html", "home-container");
+    fetchAndInsert("nav.html", "nav-container");
+  </script>
+</body>
+</html>
